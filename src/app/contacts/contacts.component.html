@@ -1,7 +1,15 @@
 <div class="row">
-  <div class="col-sm-3"></div>
+  <div class="col-sm-3">
+    <legend class=text-center>Angular Office</legend>
+    <p class="text-center h5">
+    Lamachaur,Pokhara<br>
+      Email : angular@gmail.com<br>
+      Contact No: 061-4477687
+    </p >
+    </div>
+
   <div class="col-sm-6">
-    <legend>If You Have Any Suggestions Please Feel Free to Contact us</legend>
+    <legend>Your Suggestions</legend>
     <div *ngIf="success">Your Message Is Sent To the Officials!!!</div>
     <form [formGroup]="messageForm" (submit)="Submit()" >
       <input formControlName="email" placeholder="Email" class="form-control">

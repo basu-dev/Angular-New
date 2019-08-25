@@ -1,0 +1,34 @@
+<div class=row>
+  <div class="col-md-3">
+    <legend class=text-center >Users</legend>
+   <ul *ngIf="users">
+     <li *ngFor="let user of users" class="card">
+       {{user.name}}
+     </li>
+   </ul>
+
+  </div>
+  <div class="col-md-6">
+      <legend >Register user</legend>
+    <form  [formGroup]="form" (submit)="Submit()">
+
+      <input type=text placeholder="Username" formControlName="userName"  class=form-control>
+      <div *ngIf="submitted && form.controls.userName.errors"> Enter Username</div>
+      <input type=text placeholder="First Name" formControlName="firstName"  class=form-control>
+      <div *ngIf="submitted && form.controls.firstName.errors"> Enter First Name</div>
+      <input type=text placeholder="Last Name" formControlName="lastName"  class=form-control>
+      <div *ngIf="submitted && form.controls.lastName.errors"> Enter Last Name</div>
+    <button [class.button]="btnText" class="form-control btn-sm btn-info">Submit</button>
+    </form>
+
+  </div>
+  <div class="col-md-3">
+    <legend>Entered Values</legend>
+    <div >
+        <label class=form-control>Name:{{form.controls.userName.value}}</label>
+        <label class=form-control>First Name:{{form.controls.firstName.value}}</label>
+        <label class=form-control>Last Name:{{form.controls.lastName.value}}</label>
+    </div>
+
+  </div>
+</div>

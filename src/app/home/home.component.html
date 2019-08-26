@@ -4,11 +4,15 @@
     </div>
 
   <div class="col-md-6">
-<app-register></app-register>
-
+<app-register (event)="users=$event"></app-register>
   </div>
   <div class="col-md-3">
-
+    <legend>Entered Values</legend>
+    <div *ngIf="users">
+        <label class=form-control>UserName:{{users.userName}}</label>
+        <label class=form-control>First Name:{{users.firstName}}</label>
+        <label class=form-control>Last Name:{{users.lastName}}</label>
+    </div>
 
   </div>
 </div>

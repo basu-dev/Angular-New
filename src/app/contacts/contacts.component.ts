@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contacts',
@@ -12,7 +13,7 @@ export class ContactsComponent implements OnInit {
   success:Boolean = false;
   submitted:Boolean = false;
 
-  constructor(private formBuilder:FormBuilder) {
+  constructor(private formBuilder:FormBuilder,private toastr:ToastrService) {
     this.messageForm = this.formBuilder.group({
         email:["",Validators.required],
         message:["",Validators.required],
@@ -22,10 +23,12 @@ export class ContactsComponent implements OnInit {
    };
    public Submit(){
      this.submitted=true;
+
      if(this.messageForm.invalid){
        return this.messageForm.errors;
      }
      else{
+      this.toastr.info("Your Messgae Sent!","Angular App");
        this.success=true;
      }
    }

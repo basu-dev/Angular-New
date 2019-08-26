@@ -9,6 +9,9 @@ import { NavComponent } from './nav/nav.component';
 import {HttpClientModule} from '@angular/common/http';
 import { UsersComponent } from './users/users.component';
 import { RegisterComponent } from './register/register.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +20,16 @@ import { RegisterComponent } from './register/register.component'
     ContactsComponent,
     NavComponent,
     UsersComponent,
-    RegisterComponent
+    RegisterComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
    HttpClientModule,
    ReactiveFormsModule,
+   BrowserAnimationsModule,
+   ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

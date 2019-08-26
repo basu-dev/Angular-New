@@ -1,12 +1,16 @@
 <legend >Register user</legend>
-<div *ngIf="success">Registered Successfully!!!</div>
-<form  [formGroup]="registerForm" (submit)="Submit()">
 
+<form  [formGroup]="registerForm" (submit)="Submit()">
+<label class=h6>UserName</label>
   <input type=text placeholder="Username" formControlName="userName"  class=form-control>
   <div *ngIf="submitted && registerForm.controls.userName.errors"> Enter Username</div>
+  <label class=h6>First Name</label>
   <input type=text placeholder="First Name" formControlName="firstName"  class=form-control>
+
   <div *ngIf="submitted && registerForm.controls.firstName.errors"> Enter First Name</div>
+  <label class=h6>Last Name</label>
   <input type=text placeholder="Last Name" formControlName="lastName"  class=form-control>
+
   <div *ngIf="submitted && registerForm .controls.lastName.errors"> Enter Last Name</div>
 <button [class.button]="btnText" class="form-control btn-sm btn-info">Submit</button>
 </form>

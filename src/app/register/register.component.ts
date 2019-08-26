@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -7,26 +8,30 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  registerForm:FormGroup;
+ public registerForm:FormGroup;
   submitted:Boolean=false;
   success:Boolean=false;
-  registeredData:Object = null;
+registerData:Object;
 
-  constructor(private formBuilder:FormBuilder ) {
+@Output() public event=new EventEmitter();
+
+  constructor(private formBuilder:FormBuilder ,private toastr:ToastrService) {
     this.registerForm=this.formBuilder.group({
       userName:["",Validators.required],
       firstName:["",Validators.required],
       lastName:["",Validators.required],
     })
    }
-Submit(data){
-  this.registeredData=data;
+Submit(){
+
   this.submitted=true;
   if(this.registerForm.invalid){
     return this.registerForm.errors;
   }
   else{
     this.success=true;
+    this.toastr.success("User Registered Successfully!!","Angular APP");
+    this.event.emit(this.registerForm.value);
   }
 }
   ngOnInit() {

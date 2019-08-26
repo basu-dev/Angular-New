@@ -1,0 +1,14 @@
+<legend (click)="message()" class="legend text-center mt-2">Messages</legend>
+<div *ngIf="messages">
+  <div   style="overflow-y:scroll;height: 70vh">
+    <div *ngFor="let message of messages" >
+        <div  class="card h6">
+        {{message.email}}
+          </div>
+          <p>
+            {{message.name}}
+          </p>
+    </div>
+    </div>
+
+  </div>

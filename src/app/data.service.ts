@@ -10,4 +10,7 @@ export class DataService {
   getUsers(){
 return this.http.get("https://jsonplaceholder.typicode.com/users")
   }
+  getMessages(){
+    return this.http.get("http://jsonplaceholder.typicode.com/posts/1/comments")
+  }
 }

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-3">
     <legend class=text-center>Angular Office</legend>
-    <p class="text-center h5">
+    <p class="text-center h6">
     Lamachaur,Pokhara<br>
       Email : angular@gmail.com<br>
       Contact No: 061-4477687
@@ -9,15 +9,19 @@
     </div>
 
   <div class="col-sm-6">
-    <legend>Your Suggestions</legend>
-    <div *ngIf="success">Your Message Is Sent To the Officials!!!</div>
+    <legend>Your Message</legend>
+
     <form [formGroup]="messageForm" (submit)="Submit()" >
-      <input formControlName="email" placeholder="Email" class="form-control">
-      <div *ngIf="submitted && messageForm.controls.email.errors">Email Required</div>
+      <input formControlName="email" type=email placeholder="Email" class="form-control has-error">
+      <div *ngIf="submitted && messageForm.controls.email.errors" class="e">Email Required</div>
       <input formControlName="message" placeholder="Message" class="form-control">
       <div *ngIf="submitted && messageForm.controls.message.errors">Type Your Message </div>
       <button class="btn btn-primary btn-sm form-control">Send</button>
     </form>
   </div>
-  <div class="col-sm-3"></div>
+  <div class="col-sm-3">
+    <app-messages></app-messages>
+  </div>
 </div>
+
+

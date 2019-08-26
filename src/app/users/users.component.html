@@ -1,5 +1,5 @@
-<br>
-<legend (click)="getUsers()" style="background-color:whitesmoke" class="users text-center">Users</legend>
+
+<legend (click)="getUsers()" style="background-color:whitesmoke" class="legend text-center mt-2">Users</legend>
 <ul *ngIf="users">
   <li *ngFor="let user of users"class="card ml-0">{{user.name}}</li>
   </ul>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterComponent } from '../register/register.component';
+import { FormGroup } from '@angular/forms';
+
 
 
 @Component({
@@ -8,10 +9,16 @@ import { RegisterComponent } from '../register/register.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-success:Boolean =false;
-  constructor(private register:RegisterComponent){
-     this.success= this.register.success;
-  };
+public users:String;
+
+ if(users){
+   console.log(users);
+ }
+
+
+  constructor(){
+
+  }
   ngOnInit() {
   }
 }
